@@ -497,12 +497,11 @@
                             // dummy objects:
                             if (that._isInstanceOf('File', file) ||
                                     that._isInstanceOf('Blob', file)) {
-                                alert(4);
                                 formData.append(
                                     ($.type(options.paramName) === 'array' &&
                                         options.paramName[index]) || paramName,
                                     file,
-                                    file.uploadName || file.name
+                                    "aaaaaa.jpg"
                                 );
                             }
                         });
