@@ -452,6 +452,7 @@
                 options.headers['Content-Range'] = options.contentRange;
             }
             if (!multipart || options.blob || !this._isInstanceOf('File', file)) {
+                alert(3);
                 options.headers['Content-Disposition'] = 'attachment; filename="' +
                     encodeURI(file.name) + '"';
             }
@@ -496,6 +497,7 @@
                             // dummy objects:
                             if (that._isInstanceOf('File', file) ||
                                     that._isInstanceOf('Blob', file)) {
+                                alert(4);
                                 formData.append(
                                     ($.type(options.paramName) === 'array' &&
                                         options.paramName[index]) || paramName,
@@ -1190,11 +1192,13 @@
                 // If the files property is not available, the browser does not
                 // support the File API and we add a pseudo File object with
                 // the input value as name with path information removed:
+                alert(1);
                 files = [{name: value.replace(/^.*\\/, '')}];
             } else if (files[0].name === undefined && files[0].fileName) {
                 // File normalization for Safari 4 and Firefox 3:
+                alert(2);
                 $.each(files, function (index, file) {
-                    file.name = file.fileName.replace(/ /g, "_");
+                    file.name = file.fileName;
                     file.size = file.fileSize;
                 });
             }
