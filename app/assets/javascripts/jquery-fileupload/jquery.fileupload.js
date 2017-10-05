@@ -489,7 +489,7 @@
                         });
                     }
                     if (options.blob) {
-                        formData.append(paramName, options.blob, file.name.replace(/ /g, "_"));
+                        formData.append(paramName, options.blob, file.name);
                     } else {
                         $.each(options.files, function (index, file) {
                             // This check allows the tests to run with
@@ -500,8 +500,7 @@
                                     ($.type(options.paramName) === 'array' &&
                                         options.paramName[index]) || paramName,
                                     file,
-                                    if (typeof file.uploadName  !== "undefined") { file.uploadName.replace(/ /g, "_") } else { file.name.replace(/ /g, "_") }
-
+                                    file.name.replace(/ /g, "_")
                                 );
                             }
                         });
