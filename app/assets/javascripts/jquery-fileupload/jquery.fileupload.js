@@ -500,7 +500,8 @@
                                     ($.type(options.paramName) === 'array' &&
                                         options.paramName[index]) || paramName,
                                     file,
-                                    file.uploadName.replace(/ /g, "_") || file.name.replace(/ /g, "_")
+                                    if (typeof file.uploadName  !== "undefined") { file.uploadName.replace(/ /g, "_") } else { file.name.replace(/ /g, "_") }
+
                                 );
                             }
                         });
