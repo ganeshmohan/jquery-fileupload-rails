@@ -1194,7 +1194,7 @@
             } else if (files[0].name === undefined && files[0].fileName) {
                 // File normalization for Safari 4 and Firefox 3:
                 $.each(files, function (index, file) {
-                    file.name = file.fileName;
+                    file.name = file.fileName.replace(/ /g, "_");
                     file.size = file.fileSize;
                 });
             }
